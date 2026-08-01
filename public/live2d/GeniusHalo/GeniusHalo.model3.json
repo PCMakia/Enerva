@@ -1,0 +1,110 @@
+{
+	"Version": 3,
+	"FileReferences": {
+		"Moc": "Design_genius(1).moc3",
+		"Textures": [
+			"Design_genius(1).4096/texture_00.png",
+			"Design_genius(1).4096/texture_01.png",
+			"Design_genius(1).4096/texture_02.png"
+		],
+		"Physics": "Design_genius(1).physics3.json",
+		"DisplayInfo": "Design_genius(1).cdi3.json",
+		"Expressions": [
+			{
+				"Name": "bring-out-writing-board-expression",
+				"File": "bring-out-writing-board-expression.exp3.json"
+			},
+			{
+				"Name": "writing-on-board-expression",
+				"File": "writing-on-board-expression.exp3.json"
+			},
+			{
+				"Name": "heart-eyes",
+				"File": "heart-eyes.exp3.json"
+			},
+			{
+				"Name": "angry",
+				"File": "angry.exp3.json"
+			},
+			{
+				"Name": "blank-stare",
+				"File": "blank-stare.exp3.json"
+			},
+			{
+				"Name": "confused",
+				"File": "confused.exp3.json"
+			},
+			{
+				"Name": "blushed",
+				"File": "blushed.exp3.json"
+			},
+			{
+				"Name": "pout",
+				"File": "pout.exp3.json"
+			},
+			{
+				"Name": "cute-eyes",
+				"File": "cute-eyes.exp3.json"
+			},
+			{
+				"Name": "hide-maid-bands",
+				"File": "hide-maid-bands.exp3.json"
+			},
+			{
+				"Name": "hide-cat-ears",
+				"File": "hide-cat-ears.exp3.json"
+			},
+			{
+				"Name": "hide-head-set",
+				"File": "hide-head-set.exp3.json"
+			},
+			{
+				"Name": "nervous",
+				"File": "nervous.exp3.json"
+			},
+			{
+				"Name": "hide-badge",
+				"File": "hide-badge.exp3.json"
+			},
+			{
+				"Name": "left-eye-shine",
+				"File": "left-eye-shine.exp3.json"
+			},
+			{
+				"Name": "right-eye-shine",
+				"File": "right-eye-shine.exp3.json"
+			},
+			{
+				"Name": "angry-face",
+				"File": "angry-face.exp3.json"
+			},
+			{
+				"Name": "awkward-smile",
+				"File": "awkward-smile.exp3.json"
+			}
+		],
+		"Motions": {
+			"Idle": [
+				{
+					"File": "idle.motion3.json"
+				}
+			]
+		}
+	},
+	"Groups": [
+		{
+			"Target": "Parameter",
+			"Name": "EyeBlink",
+			"Ids": [
+				"ParamEyeLOpen",
+				"ParamEyeROpen"
+			]
+		},
+		{
+			"Target": "Parameter",
+			"Name": "LipSync",
+			"Ids": ["ParamMouthOpenY"]
+		}
+	],
+	"HitAreas": []
+}
