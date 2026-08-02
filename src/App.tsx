@@ -1,13 +1,12 @@
 import { useClickThrough } from "./hooks/useClickThrough";
+import { DiaryDrawer } from "./components/DiaryDrawer";
 
 function App() {
   useClickThrough(true);
 
   return (
     <main className="overlay-shell">
-      <div className="hit-zone interactive" data-interactive>
-        Interactive zone
-      </div>
+      <DiaryDrawer />
     </main>
   );
 }
