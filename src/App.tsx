@@ -1,13 +1,18 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useClickThrough, EMPTY_CURSOR, type GlobalCursor } from "./hooks/useClickThrough";
 import { DiaryDrawer } from "./components/DiaryDrawer";
 import { Mascot } from "./components/Mascot";
 import { RadialMenu, type RadialMenuMode, type RadialMenuSelection } from "./components/RadialMenu";
 import { WatchWidget } from "./components/WatchWidget";
+import { TaskWidget } from "./components/TaskWidget";
+import { RoutineWidget } from "./components/RoutineWidget";
+import { startFocusDayWatcher } from "./lib/focusTimeStore";
 
 function App() {
   const cursorRef = useRef<GlobalCursor>(EMPTY_CURSOR);
   useClickThrough(true, cursorRef);
+
+  useEffect(() => startFocusDayWatcher(), []);
 
   const [radialMenu, setRadialMenu] = useState<{
     open: boolean;
@@ -22,6 +27,8 @@ function App() {
   });
   const [watchVisible, setWatchVisible] = useState(false);
   const [watchMode, setWatchMode] = useState<RadialMenuSelection>("pomodoro");
+  const [tasksVisible, setTasksVisible] = useState(false);
+  const [routinesVisible, setRoutinesVisible] = useState(false);
 
   const closeRadial = () =>
     setRadialMenu((prev) => ({ ...prev, open: false, wheel: "main" }));
@@ -47,13 +54,24 @@ function App() {
           setWatchVisible(true);
           closeRadial();
         }}
-        onOpenTasks={closeRadial}
-        onOpenRoutines={closeRadial}
+        onOpenTasks={() => {
+          setTasksVisible(true);
+          closeRadial();
+        }}
+        onOpenRoutines={() => {
+          setRoutinesVisible(true);
+          closeRadial();
+        }}
       />
       <WatchWidget
         visible={watchVisible}
         mode={watchMode}
         onClose={() => setWatchVisible(false)}
+      />
+      <TaskWidget visible={tasksVisible} onClose={() => setTasksVisible(false)} />
+      <RoutineWidget
+        visible={routinesVisible}
+        onClose={() => setRoutinesVisible(false)}
       />
     </main>
   );
