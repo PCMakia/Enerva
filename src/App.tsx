@@ -14,6 +14,7 @@ function App() {
 
   useEffect(() => startFocusDayWatcher(), []);
 
+  const [mascotKey, setMascotKey] = useState(0);
   const [radialMenu, setRadialMenu] = useState<{
     open: boolean;
     x: number;
@@ -36,12 +37,18 @@ function App() {
   return (
     <main className="overlay-shell">
       <Mascot
+        key={mascotKey}
         cursorRef={cursorRef}
         onContextMenuRequest={(x, y) => {
-          setRadialMenu({ open: true, x, y, wheel: "main" });
+          setRadialMenu({
+            open: true,
+            x,
+            y,
+            wheel: "main",
+          });
         }}
       />
-      <DiaryDrawer />
+      <DiaryDrawer onRefreshMascot={() => setMascotKey((k) => k + 1)} />
       <RadialMenu
         open={radialMenu.open}
         x={radialMenu.x}
